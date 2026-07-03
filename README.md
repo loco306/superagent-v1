@@ -1,11 +1,20 @@
-# ⚡ SUPERAGENT V1 — the advanced BUILDER (swarm architecture for Claude Code)
+# ⚡ SUPERAGENT V1 — the advanced BUILDER (Grok × Claude swarm architecture)
+
+**SUPERAGENT V1 combines two AI vendors into one build system: Grok for advanced
+design, Claude for the heavy lifting.** Grok fires on every goal as the design
+brain — approach, architecture, visuals, and a different-vendor review of the
+result (a real 25–50% share of the work). Claude does the heavy lifting — the
+lead orchestrator plus a parallel swarm of up to 16 builders that decompose,
+build, self-test, verify, and ship. Two vendors means two sets of instincts:
+Grok's design catches what a single-vendor swarm would never question, and it
+never blocks — the Claude swarm builds at full speed while Grok's input folds in.
 
 SUPERAGENT V1 is not an app — it is an **operating model you install into a Claude
 Code workspace**. Drop these files into a directory, open Claude Code there, and the
 session becomes SUPERAGENT: a lead orchestrator that takes a single `/goal`, splits it
-into fine independent pieces, builds them with a parallel subagent swarm, folds in a
-second AI vendor (Grok) for design diversity, verifies the assembled result end-to-end,
-and logs what it learned — every time.
+into fine independent pieces, builds them with a parallel subagent swarm, folds in
+Grok's design/approach brief, verifies the assembled result end-to-end, and logs
+what it learned — every time.
 
 **V1 is the builder.** Its swarm architecture is tuned for shipping: aggressive
 decomposition, up to 16 parallel builders each owning a different piece, and a
@@ -55,9 +64,12 @@ deep multi-source investigation.)
 2. **Model tiering.** Orchestration/verification on the strongest model; builders on a
    mid-tier model; web-scan/search subagents on the cheapest model. Capability where it
    matters, tokens saved where it doesn't.
-3. **A second vendor is a feature.** Grok fires on every goal (design/approach up front,
-   review at the end) as a **non-blocking** diversity brain with a real 25–50% share of
-   the work. Cross-vendor disagreement surfaces blind spots single-vendor swarms miss.
+3. **Grok designs, Claude lifts.** Grok fires on every goal — advanced design and
+   approach up front, generated visuals for anything visual, and a different-vendor
+   review at the end — as a **non-blocking** diversity brain with a real 25–50% share
+   of the work. Claude's lead + swarm do the heavy lifting: decompose, build,
+   self-test, verify, merge. Cross-vendor disagreement surfaces blind spots
+   single-vendor swarms miss.
 4. **Fine, independent decomposition.** Pieces split by file/module/component so up to
    16 builders run at once with no cross-talk; each self-tests before handing back.
 5. **Verification is a separate agent.** The verifier never built anything, so it has no
