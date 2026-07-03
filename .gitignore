@@ -1,0 +1,21 @@
+# SUPERAGENT run artifacts — transient prompts/outputs/logs (kept out of the clean root).
+# Convention: all transient Grok prompts/outputs and scratch go under tmp/ or get a .tmp- prefix.
+tmp/
+_archive/
+.tmp-*
+.grok-*-tmp.txt
+.grok-prompt-*.txt
+_grok_*
+bridge_*.log
+_shot_*.png
+_verify.txt
+_eject.txt
+
+# Per-run scratch dirs (inter-agent bridge / terminal spool / API dumps)
+terminals/
+agent-tools/
+live/
+
+# Load-bearing — do NOT ignore (assemble.js reads these): grok_design_out.txt, grok_review_out.txt
+!grok_design_out.txt
+!grok_review_out.txt
