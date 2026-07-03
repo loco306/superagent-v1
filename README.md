@@ -1,4 +1,4 @@
-# ⚡ SUPERAGENT V1 — a multi-agent operating model for Claude Code
+# ⚡ SUPERAGENT V1 — the advanced BUILDER (swarm architecture for Claude Code)
 
 SUPERAGENT V1 is not an app — it is an **operating model you install into a Claude
 Code workspace**. Drop these files into a directory, open Claude Code there, and the
@@ -6,6 +6,14 @@ session becomes SUPERAGENT: a lead orchestrator that takes a single `/goal`, spl
 into fine independent pieces, builds them with a parallel subagent swarm, folds in a
 second AI vendor (Grok) for design diversity, verifies the assembled result end-to-end,
 and logs what it learned — every time.
+
+**V1 is the builder.** Its swarm architecture is tuned for shipping: aggressive
+decomposition, up to 16 parallel builders each owning a different piece, and a
+verifier that loops fixes until the assembled deliverable is clean. (Its sibling,
+`superagent-v2`, is the research arm — a one-click Claude CLI launcher tuned for
+deep multi-source investigation.)
+
+## Wire diagram — who spawns what, and what each agent does
 
 ```
                 YOU ── /goal (one command)
@@ -27,6 +35,17 @@ and logs what it learned — every time.
                   ▼
               MERGE ──► deliverable ──► self-improve (LEARNINGS.md)
 ```
+
+**Each agent's job:**
+
+| Agent | Spawned by | Model tier | Does |
+|---|---|---|---|
+| **CLAUDE LEAD** | you (`/goal`) | strongest | The only persistent agent. Gates the approach (minimal scope), decomposes into fine independent pieces, spawns everything below, judges, merges. |
+| **BUILDERS ×N** (up to 16) | lead, all at once | mid-tier | Each owns ONE different piece (a file, module, component, or concern), builds it, and self-tests it before handing back. Die when done. |
+| **WEB-SCAN agents** | lead or builders | cheapest | Any subagent whose job is web search/fetch/scanning. Throwaway lookups at minimum token cost. |
+| **GROK** (+ its own subagents) | lead, at the start | 2nd vendor | Design/approach brief up front, different-vendor review at the end. Runs in parallel, owns 25–50% of the work, and NEVER blocks the build — its input is folded in when it returns. |
+| **VERIFIER** | lead, after assembly | strongest | Independent of all builders. Runs the assembled deliverable end-to-end: it must WORK (no errors, every feature functions) and be USABLE (not confusing). Loops fixes until clean. |
+
 
 ## Core ideas
 
@@ -80,5 +99,5 @@ orders, writing to production, or sending external messages.
 
 ---
 
-*SUPERAGENT V2 — a one-click launcher that boots the Claude CLI itself as the agent
-framework — lives in its own repo: `superagent-v2`.*
+*SUPERAGENT V2 — the research arm: a one-click launcher that boots the Claude CLI
+itself as a deep multi-source research agent — lives in its own repo: `superagent-v2`.*
