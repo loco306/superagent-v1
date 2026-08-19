@@ -1,7 +1,7 @@
 # Verification-Bounded Autonomy: A Two-System Architecture for Orchestrated Multi-Agent Work
 
 **Caleb Dean**
-Independent Researcher
+Independent Developer & Researcher
 [github.com/loco306](https://github.com/loco306)
 
 **Systems:** [`superagent-v1`](https://github.com/loco306/superagent-v1) · [`superagent-v2`](https://github.com/loco306/superagent-v2)
